@@ -3,8 +3,8 @@ import copy
 
 class Array:
 	# variables
-	__array = [];
-	__length = 0;
+	__array = []
+	__length = 0
 	# functions
 	
 	# constructor

@@ -93,7 +93,7 @@ def add_binary(A,B):
 		C[0] = carry
 	return C
 
-# tests
+### tests
 
 A = Array(arr=[31,41,59,26,41,58])
 
