@@ -71,7 +71,7 @@ def add_binary(A,B):
 		print("A and B must have the same size")
 		return None
 	else:
-		C = Array(A.length())
+		C = Array(A.length() + 1)
 		carry = 0
 		for i in reversed(range(0,A.length())):
 			if((A[i] != 0 and A[i] != 1) or (B[i] != 0 and B[i] != 1)):
@@ -79,19 +79,18 @@ def add_binary(A,B):
 				return None
 			tmp = A[i] + B[i] + carry
 			if(tmp == 0):
-				C[i] = 0
+				C[i+1] = 0
 				carry = 0
 			elif(tmp == 1):
-				C[i] = 1
+				C[i+1] = 1
 				carry = 0
 			elif(tmp == 2):
-				C[i] = 0
+				C[i+1] = 0
 				carry = 1
 			elif(tmp == 3):
-				C[i] = 1
+				C[i+1] = 1
 				carry = 1
-	if(carry == 1):
-		print("There is an overflow")
+		C[0] = carry
 	return C
 
 # tests
@@ -111,7 +110,9 @@ print(search_in_array(C,6))
 
 A = Array(arr=[1,1,1,0,1,0,1,0])
 B = Array(arr=[1,0,0,0,0,1,1,1])
+print("  ",end='')
 A.print()
+print("  ",end='')
 B.print()
 C=add_binary(A,B)
 C.print()
